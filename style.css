@@ -100,3 +100,60 @@ footer {
 footer a {
   color: #9CBCC6;
 }
+/* ---------- CATÁLOGO ---------- */
+.catalogo-header {
+  background-color: #406B8C;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+.titulo-categoria {
+  font-family: 'Fredoka', sans-serif;
+  color: #406B8C;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1.8rem;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 50px 40px;
+}
+
+.producto-card {
+  background-color: white;
+  border: 2px solid #9CBCC6;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.producto-card:hover {
+  transform: translateY(-8px); /* se levanta un poquito al pasar el mouse */
+  border-color: #E88445;
+}
+
+.producto-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;   /* muestra la imagen completa, sin recortar */
+  background-color: #f5f5f5; /* fondo suave para que no se vea vacío a los lados */
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.producto-card h3 {
+  font-family: 'Fredoka', sans-serif;
+  color: #406B8C;
+  margin-bottom: 8px;
+}
+
+.precio {
+  display: block;
+  margin-top: 10px;
+  font-weight: 700;
+  color: #A4485E;
+}
