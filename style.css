@@ -334,3 +334,26 @@ footer a {
   padding: 0 15px;
   cursor: pointer;
 }
+/* ---------- RESPONSIVE (pantallas pequeñas) ---------- */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  #chat-caja {
+    width: 85vw;
+    right: 7.5vw;
+  }
+}
