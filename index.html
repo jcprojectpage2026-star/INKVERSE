@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Arimo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+ 
 <body>
 
   <!-- ENCABEZADO: el logo y el menú de navegación -->
@@ -44,6 +45,20 @@ No tenemos un solo estilo ni un solo tipo de persona: Inkverse es para todos los
     <p>&copy; 2026 Inkverse. Todos los derechos reservados.</p>
     <a href="https://www.instagram.com/inkverse_ctg" target="_blank">Síguenos en Instagram</a>
   </footer>
+ <!-- CHATBOT -->
+  <div id="chat-burbuja">💬</div>
 
+  <div id="chat-caja" class="oculto">
+    <div class="chat-header">
+      <span>Inkbot 🐰</span>
+      <span id="chat-cerrar">✕</span>
+    </div>
+    <div id="chat-mensajes"></div>
+    <div class="chat-input-area">
+      <input type="text" id="chat-input" placeholder="Escribe tu pregunta...">
+      <button id="chat-enviar">➤</button>
+    </div>
+  </div>
+   <script src="script.js"></script>
 </body>
 </html>
