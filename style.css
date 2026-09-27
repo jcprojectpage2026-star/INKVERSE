@@ -3,3 +3,100 @@
   width: 150px;      /* ancho fijo, ajústalo a tu gusto */
   height: auto;       /* la altura se ajusta sola, sin deformarse */
 }
+/* Reset básico: quita espacios raros que traen los navegadores por defecto */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arimo', sans-serif;
+  color: #2b2b2b;
+}
+
+h1, h2, .logo-texto {
+  font-family: 'Fredoka', sans-serif;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #406B8C; /* azul principal */
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #E88445; /* naranja al pasar el mouse */
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  background-color: #9CBCC6; /* celeste claro */
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #406B8C;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #E88445; /* naranja */
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #A4485E; /* vino al pasar el mouse */
+}
+
+/* ---------- SOBRE NOSOTROS ---------- */
+.sobre-nosotros {
+  background-color: #E4C5AF; /* durazno claro */
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.sobre-nosotros h2 {
+  color: #A4485E;
+  margin-bottom: 15px;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background-color: #2b2b2b;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+footer a {
+  color: #9CBCC6;
+}
