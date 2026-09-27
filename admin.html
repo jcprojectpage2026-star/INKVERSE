@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Inkverse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Arimo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <img src="assets/logo.png" alt="Logo Inkverse" class="logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="admin-container">
+    <h1>Acceso Administrador</h1>
+    <form id="form-login">
+      <label for="usuario">Usuario</label>
+      <input type="text" id="usuario" required>
+
+      <label for="clave">Contraseña</label>
+      <input type="password" id="clave" required>
+
+      <button type="submit" class="btn">Entrar</button>
+      <p id="error-msg" class="error-msg"></p>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Inkverse. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

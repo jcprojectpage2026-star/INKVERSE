@@ -195,3 +195,21 @@ footer a {
   cursor: pointer;
   width: 100%;
 }
+/* ---------- ADMIN ---------- */
+.admin-container {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  text-align: center;
+}
+
+.admin-container h1 {
+  color: #406B8C;
+  margin-bottom: 20px;
+}
+
+.error-msg {
+  color: #A4485E;
+  margin-top: 10px;
+  font-weight: 600;
+}
