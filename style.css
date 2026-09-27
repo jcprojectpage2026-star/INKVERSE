@@ -1,0 +1,5 @@
+/* Esto afecta a TODA la imagen que tenga la clase "logo" */
+.logo {
+  width: 150px;      /* ancho fijo, ajústalo a tu gusto */
+  height: auto;       /* la altura se ajusta sola, sin deformarse */
+}
