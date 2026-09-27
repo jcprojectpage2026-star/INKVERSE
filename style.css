@@ -157,3 +157,41 @@ footer a {
   font-weight: 700;
   color: #A4485E;
 }
+/* ---------- CONTACTO ---------- */
+.contacto-header {
+  background-color: #A4485E;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.form-container label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #406B8C;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #9CBCC6;
+  border-radius: 8px;
+  font-family: 'Arimo', sans-serif;
+}
+
+.form-container button {
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
