@@ -220,3 +220,31 @@ if (listaCarrito) {
 }
 
 mostrarCarrito();
+// ---------- PEDIDO POR WHATSAPP ----------
+const btnWhatsapp = document.getElementById("pedir-whatsapp");
+
+if (btnWhatsapp) {
+  btnWhatsapp.addEventListener("click", function () {
+    const carrito = obtenerCarrito();
+
+    if (carrito.length === 0) {
+      alert("Tu carrito está vacío. Agrega una prenda primero 🐰");
+      return;
+    }
+
+    let mensaje = "¡Hola Inkverse! 🐰 Quiero hacer este pedido:\n\n";
+    let total = 0;
+
+    carrito.forEach(function (producto) {
+      const subtotal = producto.precio * producto.cantidad;
+      total += subtotal;
+      mensaje += "• " + producto.cantidad + " x " + producto.nombre + " - " + formatearPrecio(subtotal) + "\n";
+    });
+
+    mensaje += "\nTotal: " + formatearPrecio(total);
+
+    const numero = "573054083004"; // <-- AQUÍ VA TU NÚMERO
+    const url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+    window.open(url, "_blank");
+  });
+}
