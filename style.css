@@ -520,6 +520,31 @@ footer a {
   font-weight: 700;
   color: #406B8C;
 }
+.chat-rapidas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 10px;
+  background-color: #faf6f2;
+  border-top: 1px solid #eee;
+}
+
+.chat-rapidas button {
+  background-color: white;
+  border: 2px solid #E88445;
+  color: #A4485E;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: 'Arimo', sans-serif;
+  cursor: pointer;
+}
+
+.chat-rapidas button:hover {
+  background-color: #E88445;
+  color: white;
+}
 /* ---------- RESPONSIVE (pantallas pequeñas) ---------- */
 @media (max-width: 600px) {
   header {

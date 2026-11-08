@@ -320,3 +320,28 @@ if (btnWhatsapp) {
     window.open(url, "_blank");
   });
 }
+// ---------- BOTONES DE PREGUNTAS RÁPIDAS ----------
+const preguntasRapidas = ["Precios", "Tallas", "Cómo pedir", "Envíos", "Personalizar"];
+
+if (caja) {
+  const contenedorRapidas = document.createElement("div");
+  contenedorRapidas.className = "chat-rapidas";
+
+  preguntasRapidas.forEach(function (pregunta) {
+    const boton = document.createElement("button");
+    boton.textContent = pregunta;
+
+    boton.addEventListener("click", function () {
+      agregarMensaje(pregunta, "usuario");
+      const respuesta = generarRespuesta(pregunta);
+      setTimeout(function () {
+        agregarMensaje(respuesta, "bot");
+      }, 500);
+    });
+
+    contenedorRapidas.appendChild(boton);
+  });
+
+  // Los pone justo encima de la cajita donde se escribe
+  caja.insertBefore(contenedorRapidas, caja.querySelector(".chat-input-area"));
+}
