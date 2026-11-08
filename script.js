@@ -85,26 +85,98 @@ function agregarMensaje(texto, tipo) {
   mensajesDiv.scrollTop = mensajesDiv.scrollHeight; // baja el scroll al último mensaje
 }
 
+// Quita tildes y mayúsculas para entender mejor lo que escriben
+function limpiarTexto(texto) {
+  return texto
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+// Cada tema tiene palabras clave (SIN tildes) y una respuesta
+const temas = [
+  {
+    palabras: ["hola", "buenas", "buenos dias", "hey"],
+    respuesta: "¡Hola! 👋 Soy Inkbot. Pregúntame por precios, tallas, productos, cuidados o cómo pedir."
+  },
+  {
+    palabras: ["precio", "cuesta", "vale", "cuanto", "costo", "valor"],
+    respuesta: "Los sueters cuestan $50.000 COP, el Tote Grande $30.000, el Tote Edición Nana $40.000 y el llavero de fresa $5.000 COP."
+  },
+  {
+    palabras: ["catalogo", "productos", "que venden", "que tienen", "que ofrecen"],
+    respuesta: "Tenemos sueters, totebags y accesorios (llaveros). Míralos todos en la página de Catálogo 🛍️"
+  },
+  {
+    palabras: ["sueter", "camiseta", "buso", "oversize"],
+    respuesta: "Nuestros sueters, como One Piece y Toji, son oversize y cuestan $50.000 COP. Hay tallas S, M, L y XL."
+  },
+  {
+    palabras: ["talla", "medida", "tamano", "size"],
+    respuesta: "Medidas (ancho x largo): S 51x67, M 52x68, L 56x73, XL 58x77. Los totebags miden 35x40."
+  },
+  {
+    palabras: ["tote", "totebag", "bolsa", "bolso"],
+    respuesta: "El Tote Grande cuesta $30.000 COP y tiene estampados de BTS, Studio Ghibli y Nana Osaki. Mide 35x40."
+  },
+  {
+    palabras: ["nana", "hachi", "edicion especial"],
+    respuesta: "El Tote Edición Especial Nana cuesta $40.000 COP, tiene diseño en dos caras (Nana & Hachi) e incluye llavero y bolsita protectora."
+  },
+  {
+    palabras: ["llavero", "fresa", "accesorio"],
+    respuesta: "El llavero de fresa cuesta $5.000 COP. Viene en negro o fucsia e incluye bolsita protectora."
+  },
+  {
+    palabras: ["lavar", "lavado", "cuidado", "cuidar"],
+    respuesta: "Nuestra recomendación es lavar las prendas a mano para que el estampado dure más 🧼"
+  },
+  {
+    palabras: ["personalizar", "personalizado", "personalizada", "mi diseno", "estampar", "dibujo"],
+    respuesta: "¡Sí, hacemos prendas personalizadas! Cuéntanos tu idea en la página de Contacto y te respondemos pronto 🎨"
+  },
+  {
+    palabras: ["comprar", "pedido", "pedir", "carrito", "ordenar"],
+    respuesta: "Agrega tus prendas al carrito en el Catálogo y dale a 'Pedir por WhatsApp'. Ahí confirmamos tu pedido 🛒"
+  },
+  {
+    palabras: ["pagar", "pago", "transferencia", "tarjeta", "efectivo"],
+    respuesta: "El pago lo acordamos por WhatsApp cuando envíes tu pedido desde el carrito."
+  },
+  {
+    palabras: ["envio", "domicilio", "entrega", "despacho", "cuanto demora"],
+    respuesta: "Para envíos y tiempos de entrega, escríbenos por WhatsApp o Instagram @inkverse_ctg y te confirmamos 📦"
+  },
+  {
+    palabras: ["instagram", "contacto", "whatsapp", "redes", "escribir", "hablar"],
+    respuesta: "Nos encuentras en Instagram como @inkverse_ctg, o escríbenos desde la página de Contacto 💬"
+  },
+  {
+    palabras: ["gracias", "chao", "adios", "hasta luego"],
+    respuesta: "¡Gracias a ti! 🐰 Aquí estaré si necesitas algo más."
+  }
+];
+
 function generarRespuesta(mensaje) {
-  if (mensaje.includes("precio") || mensaje.includes("cuesta") || mensaje.includes("vale")) {
-    return "Los sueters cuestan $50.000 COP, los totebags entre $30.000 y $40.000 COP, y los accesorios desde $5.000 COP.";
-  }
-  if (mensaje.includes("sueter") || mensaje.includes("suéter")) {
-    return "Tenemos sueters personalizados como 'One Piece' y 'Toji', tela oversize. Míralos en nuestro catálogo.";
-  }
-  if (mensaje.includes("tote") || mensaje.includes("bolsa")) {
-    return "Nuestras totebags vienen en varios estampados: BTS, Studio Ghibli, Nana Osaki, entre otros.";
-  }
-  if (mensaje.includes("envio") || mensaje.includes("envío") || mensaje.includes("domicilio")) {
-    return "Para info de envíos, escríbenos por el formulario de contacto o nuestro Instagram @inkverse_ctg.";
-  }
-  if (mensaje.includes("contacto") || mensaje.includes("comprar") || mensaje.includes("pedido")) {
-    return "Puedes hacer tu pedido llenando el formulario en nuestra página de Contacto, ¡con gusto te ayudamos!";
-  }
-  if (mensaje.includes("hola") || mensaje.includes("buenas")) {
-    return "¡Hola! 👋 ¿En qué te puedo ayudar hoy?";
-  }
-  return "No entendí muy bien tu pregunta 🐰 Prueba preguntando sobre precios, productos o envíos.";
+  const texto = limpiarTexto(mensaje);
+  let mejorTema = null;
+  let mejorPuntos = 0;
+
+  // Cuenta cuántas palabras clave de cada tema aparecen en el mensaje
+  temas.forEach(function (tema) {
+    let puntos = 0;
+    tema.palabras.forEach(function (palabra) {
+      if (texto.includes(palabra)) puntos++;
+    });
+    if (puntos > mejorPuntos) {
+      mejorPuntos = puntos;
+      mejorTema = tema;
+    }
+  });
+
+  if (mejorTema) return mejorTema.respuesta;
+
+  return "No estoy seguro de eso 🐰 Escríbenos por Instagram @inkverse_ctg o por la página de Contacto y te ayudamos.";
 }
 // ---------- CARRITO ----------
 function obtenerCarrito() {
