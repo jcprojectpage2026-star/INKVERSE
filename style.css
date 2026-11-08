@@ -26,6 +26,10 @@ header {
   align-items: center;
   padding: 20px 40px;
   background-color: #406B8C; /* azul principal */
+    position: sticky;   /* se queda pegado arriba al hacer scroll */
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
 nav ul {
@@ -89,6 +93,11 @@ nav a:hover {
   margin-bottom: 15px;
 }
 
+.sobre-nosotros p {
+  max-width: 700px;
+  margin: 0 auto 15px;
+  line-height: 1.6;
+}
 /* ---------- FOOTER ---------- */
 footer {
   background-color: #2b2b2b;
