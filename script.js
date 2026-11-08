@@ -106,3 +106,48 @@ function generarRespuesta(mensaje) {
   }
   return "No entendí muy bien tu pregunta 🐰 Prueba preguntando sobre precios, productos o envíos.";
 }
+// ---------- CARRITO ----------
+function obtenerCarrito() {
+  try {
+    return JSON.parse(localStorage.getItem("carrito")) || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function guardarCarrito(carrito) {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarContador();
+}
+
+function actualizarContador() {
+  const contador = document.getElementById("contador-carrito");
+  if (contador) {
+    const total = obtenerCarrito().reduce(function (suma, p) {
+      return suma + p.cantidad;
+    }, 0);
+    contador.textContent = total;
+  }
+}
+
+document.querySelectorAll(".btn-agregar").forEach(function (boton) {
+  boton.addEventListener("click", function () {
+    const nombre = boton.dataset.nombre;
+    const precio = Number(boton.dataset.precio);
+    const carrito = obtenerCarrito();
+
+    const existente = carrito.find(function (p) {
+      return p.nombre === nombre;
+    });
+
+    if (existente) {
+      existente.cantidad++;
+    } else {
+      carrito.push({ nombre: nombre, precio: precio, cantidad: 1 });
+    }
+
+    guardarCarrito(carrito);
+  });
+});
+
+actualizarContador();

@@ -411,6 +411,12 @@ footer a {
   padding: 0 15px;
   cursor: pointer;
 }
+.btn-agregar {
+  border: none;
+  cursor: pointer;
+  margin-top: 12px;
+  font-family: 'Arimo', sans-serif;
+}
 /* ---------- RESPONSIVE (pantallas pequeñas) ---------- */
 @media (max-width: 600px) {
   header {
