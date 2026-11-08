@@ -1,7 +1,13 @@
 /* Esto afecta a TODA la imagen que tenga la clase "logo" */
 .logo {
-  width: 150px;      /* ancho fijo, ajústalo a tu gusto */
-  height: auto;       /* la altura se ajusta sola, sin deformarse */
+  width: 90px;
+  height: auto;
+  border-radius: 14px;
+  transition: transform 0.3s;
+}
+
+.logo:hover {
+  transform: rotate(-5deg) scale(1.1);
 }
 /* Reset básico: quita espacios raros que traen los navegadores por defecto */
 * {
@@ -50,20 +56,21 @@ nav a:hover {
 
 /* ---------- HERO ---------- */
 .hero {
-  background-color: #9CBCC6; /* celeste claro */
+  background: linear-gradient(135deg, #9CBCC6 0%, #E4C5AF 100%);
   text-align: center;
-  padding: 80px 20px;
+  padding: 110px 20px;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 3.2rem;
   color: #406B8C;
   margin-bottom: 15px;
+  text-shadow: 3px 3px 0 rgba(255, 255, 255, 0.7);
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
+  font-size: 1.4rem;
+  margin-bottom: 30px;
 }
 
 .btn {
@@ -74,7 +81,8 @@ nav a:hover {
   border-radius: 30px;
   text-decoration: none;
   font-weight: 700;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s;   box-shadow: 0 4px 0 #A4485E;
+  font-size: 1.1rem;
 }
 
 .btn:hover {
