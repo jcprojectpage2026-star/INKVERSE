@@ -417,6 +417,91 @@ footer a {
   margin-top: 12px;
   font-family: 'Arimo', sans-serif;
 }
+/* ---------- CARRITO ---------- */
+.carrito-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.carrito-container h1 {
+  font-family: 'Permanent Marker', cursive;
+  color: #406B8C;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+}
+
+.carrito-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 15px;
+  align-items: center;
+  background-color: white;
+  border: 2px solid #9CBCC6;
+  border-radius: 15px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+}
+
+.carrito-info h3 {
+  font-family: 'Fredoka', sans-serif;
+  color: #406B8C;
+}
+
+.carrito-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.carrito-cantidad button,
+.quitar {
+  background-color: #E4C5AF;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.carrito-cantidad button:hover,
+.quitar:hover {
+  background-color: #E88445;
+  color: white;
+}
+
+.carrito-subtotal {
+  font-weight: 700;
+  color: #A4485E;
+}
+
+.carrito-vacio {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+}
+
+.carrito-resumen {
+  text-align: right;
+  margin-top: 30px;
+}
+
+.carrito-resumen h2 {
+  color: #406B8C;
+  margin-bottom: 15px;
+}
+
+.btn-vaciar {
+  background: none;
+  border: 2px solid #A4485E;
+  color: #A4485E;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-weight: 700;
+}
 /* ---------- RESPONSIVE (pantallas pequeñas) ---------- */
 @media (max-width: 600px) {
   header {
@@ -426,6 +511,9 @@ footer a {
       .historia-contenedor {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+    .carrito-item {
+    grid-template-columns: 1fr 1fr;
   }
   }
 

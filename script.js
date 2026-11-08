@@ -151,3 +151,72 @@ document.querySelectorAll(".btn-agregar").forEach(function (boton) {
 });
 
 actualizarContador();
+// ---------- PÁGINA DEL CARRITO ----------
+function formatearPrecio(numero) {
+  return "$" + numero.toLocaleString("es-CO");
+}
+
+function mostrarCarrito() {
+  const lista = document.getElementById("carrito-lista");
+  if (!lista) return; // si no estamos en carrito.html, no hace nada
+
+  const carrito = obtenerCarrito();
+  lista.innerHTML = "";
+  let total = 0;
+
+  if (carrito.length === 0) {
+    lista.innerHTML = '<p class="carrito-vacio">Tu carrito está vacío 🐰</p>';
+  }
+
+  carrito.forEach(function (producto, indice) {
+    const subtotal = producto.precio * producto.cantidad;
+    total += subtotal;
+
+    lista.innerHTML += `
+      <div class="carrito-item">
+        <div class="carrito-info">
+          <h3>${producto.nombre}</h3>
+          <p>${formatearPrecio(producto.precio)} c/u</p>
+        </div>
+        <div class="carrito-cantidad">
+          <button class="menos" data-indice="${indice}">−</button>
+          <span>${producto.cantidad}</span>
+          <button class="mas" data-indice="${indice}">+</button>
+        </div>
+        <div class="carrito-subtotal">${formatearPrecio(subtotal)}</div>
+        <button class="quitar" data-indice="${indice}">✕</button>
+      </div>
+    `;
+  });
+
+  document.getElementById("carrito-total").textContent = formatearPrecio(total);
+}
+
+const listaCarrito = document.getElementById("carrito-lista");
+
+if (listaCarrito) {
+  listaCarrito.addEventListener("click", function (evento) {
+    const carrito = obtenerCarrito();
+    const indice = evento.target.dataset.indice;
+    if (indice === undefined) return;
+
+    if (evento.target.classList.contains("mas")) {
+      carrito[indice].cantidad++;
+    } else if (evento.target.classList.contains("menos")) {
+      carrito[indice].cantidad--;
+      if (carrito[indice].cantidad <= 0) carrito.splice(indice, 1);
+    } else if (evento.target.classList.contains("quitar")) {
+      carrito.splice(indice, 1);
+    }
+
+    guardarCarrito(carrito);
+    mostrarCarrito();
+  });
+
+  document.getElementById("vaciar-carrito").addEventListener("click", function () {
+    guardarCarrito([]);
+    mostrarCarrito();
+  });
+}
+
+mostrarCarrito();

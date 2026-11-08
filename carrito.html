@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito | Inkverse</title>
+  <link rel="icon" href="assets/conejo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Arimo:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <img src="assets/logo.png" alt="Logo Inkverse" class="logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="carrito.html">🛒 Carrito (<span id="contador-carrito">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="carrito-container">
+    <h1>Tu carrito</h1>
+
+    <div id="carrito-lista"></div>
+
+    <div class="carrito-resumen">
+      <h2>Total: <span id="carrito-total">$0</span></h2>
+      <button id="vaciar-carrito" class="btn-vaciar">Vaciar carrito</button>
+      <a href="catalogo.html" class="btn">Seguir comprando</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Inkverse. Todos los derechos reservados.</p>
+    <a href="https://www.instagram.com/inkverse_ctg" target="_blank">Síguenos en Instagram</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
