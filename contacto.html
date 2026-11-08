@@ -27,7 +27,7 @@
   </section>
 
   <section class="form-container">
-    <form action="https://formspree.io/f/xppwobvy" method="POST">
+    <form id="form-contacto">
 
       <label for="nombre">Nombre completo</label>
       <input type="text" id="nombre" name="nombre" required>
@@ -50,6 +50,8 @@
       <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
 
       <button type="submit" class="btn">Enviar mensaje</button>
+      <button type="submit" class="btn">Enviar mensaje</button>
+<p id="aviso-form" class="aviso-form"></p>
 
     </form>
   </section>
@@ -76,6 +78,7 @@
      </div>
 
      <script src="script.js"></script>
+     <script type="module" src="contacto.js"></script>
    </body>
    </html>
 </body>

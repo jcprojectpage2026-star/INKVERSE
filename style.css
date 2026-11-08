@@ -514,6 +514,12 @@ footer a {
 .btn-whatsapp:hover {
   background-color: #1ebe5a;
 }
+.aviso-form {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: 700;
+  color: #406B8C;
+}
 /* ---------- RESPONSIVE (pantallas pequeñas) ---------- */
 @media (max-width: 600px) {
   header {
