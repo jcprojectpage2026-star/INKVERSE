@@ -91,9 +91,10 @@ nav a:hover {
 
 /* ---------- SOBRE NOSOTROS ---------- */
 .sobre-nosotros {
-  background-color: #E4C5AF; /* durazno claro */
+  background: linear-gradient(135deg, #406B8C 0%, #24415a 100%);
+  color: white;
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 
 .sobre-nosotros h2 {
@@ -105,6 +106,65 @@ nav a:hover {
   max-width: 700px;
   margin: 0 auto 15px;
   line-height: 1.6;
+}
+.historia-contenedor {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.historia-imagen img {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+    border: 8px solid #E4C5AF;
+  box-shadow: 12px 12px 0 #E88445;
+  display: block;
+  margin: 0 auto;
+}
+
+.historia-texto {
+  text-align: left;
+}
+
+.historia-texto h2 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3rem;
+  color: #E88445;
+  text-shadow: 3px 3px 0 #A4485E;
+  margin-bottom: 10px;
+}
+
+.historia-texto p {
+  max-width: none;
+  margin: 0 0 15px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.etiqueta {
+  display: inline-block;
+  background-color: #A4485E;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.frase-destacada {
+  font-family: 'Fredoka', sans-serif;
+   font-size: 1.6rem;
+  color: #E4C5AF;
+  border-left: 5px solid #E88445;
+  padding-left: 15px;
+  margin: 15px 0 20px !important;
 }
 /* ---------- FOOTER ---------- */
 footer {
@@ -357,6 +417,10 @@ footer a {
     flex-direction: column;
     gap: 15px;
     padding: 15px 20px;
+      .historia-contenedor {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
   }
 
   nav ul {
